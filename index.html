@@ -190,7 +190,11 @@
 
 
 <body>
-
+    <script>
+      $('.menu-toggle-fix').on('click', function(){   
+            $('html').toggleClass('is-menu-toggled-on');
+      })
+    </script>
 
 
 
@@ -202,7 +206,7 @@
         <!-- HEADER -->
         <header id="masthead" class="header" role="banner">
 
-            <a class="toggle-link" style="justify-content: center;align-items: center;padding-top: 5px;">
+            <a class="menu-toggle-fix toggle-link" style="display: flex; justify-content: center;align-items: center;">
             <ion-icon name="menu" size="large" role="img" class="icon-large hydrated" aria-label="home"></ion-icon>
             </a>
 
