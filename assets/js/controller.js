@@ -55,13 +55,13 @@ window.onscroll = () => {
   if (isInViewport(projectMobile)) {
     if (detectMob()) {
       mobile.style.animation =
-        "resize_shake_mobile 2.5s ease-in-out forwards";
+        "resize_shake_mobile 2.5s  ease-in-out forwards, translate_mobile 1s ease-in-out forwards";
       credCard.style.animation =
-        "card_mobile 0.5s ease-in forwards 1.5s, card_fade_in 0.5s ease-in 1s forwards";
+        "card_mobile 0.5s ease-in forwards 1.5s";
     } else {
-      mobile.style.animation = "resize_shake 2.5s ease-in-out forwards";
+      mobile.style.animation = "resize_shake 2.5s ease-in-out forwards, translate_mobile 1s ease-in-out forwards";
       credCard.style.animation =
-        "card 0.5s ease-in forwards 1.5s, card_fade_in 0.5s ease-in 1s forwards";
+        "card 0.5s ease-in forwards 1.5s";
     }
   }
 };
@@ -79,7 +79,7 @@ const configureComponentsSize = () => {
     mobile.width = 100;
     desktop.width = window.innerWidth - 100;
     phone.width = 1000;
-    credCard.width = window.innerWidth - 100;
+    credCard.style.transform = 'scale('+((window.innerWidth - 100)/window.innerWidth)+')';
     // phone.width = window.innerWidth - 300;
     // credCard.width = window.innerWidth - 100;
   }

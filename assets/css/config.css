@@ -169,33 +169,37 @@ div.demo > div:nth-child(2) {
         }
       } */
 .app {
-  width: 100vw;
+  /* width: 100vw; */
   display: flex;
-  justify-content: center;
-  margin-top: -150px;
-  margin-bottom: -600px;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;;
+  /* margin-top: -150px; */
+  /* margin-bottom: -600px; */
 }
 
 .mobile {
-  margin-left: 500px;
+  /* margin-left: 500px; */
   transform: scale(0.3);
   opacity: 0;
   /* animation: resize_shake 2.5s ease-in-out forwards; */
   z-index: 1;
+  max-width: 600px;
 }
 
 .cred-card {
   opacity: 0;
-  transform: scale(0.65) translate(350px, -200px) rotate(-5deg);
+  transform: scale(0.4) translate(100px, 0px) rotate(-5deg);
   position: absolute;
-  margin-top: 280px;
+  /* margin-top: 280px; */
   z-index: 0;
   /* animation: card 0.5s ease-in forwards 1.5s,
           card_fade_in 0.5s ease-in 1s forwards; */
 }
 .card-mobile {
-  max-width: 70vw;
-  height: 700px;
+  /* max-width: 70vw; */
+  height: auto;
   border-radius: 30px;
 }
 #totvs-card-phone {
@@ -218,14 +222,24 @@ div.demo > div:nth-child(2) {
 }
 
 @keyframes card {
+  from{
+    transform: scale(0.4) translate(400px, 0px); /************/ 
+    opacity: 0;
+  }
   to {
-    transform: scale(0.65) translate(-250px, 0px);
+    transform: scale(0.4) translate(-150px, 0px); /************/ 
+    opacity: 1;
   }
 }
 
 @keyframes card_mobile {
+  from{
+    transform: scale(0.4) translate(400px, 0px); /************/ 
+    opacity: 0;
+  }
   to {
-    transform: scale(0.65) translate(-50px, -70px);
+    transform: scale(0.4) translate(-150px, 0px);
+    opacity: 1;
   }
 }
 
@@ -274,9 +288,7 @@ div.demo > div:nth-child(2) {
   }
 }
 @keyframes resize_shake_mobile {
-  from {
-    transform: scale(0.1);
-  }
+  
   0% {
     transform: rotate(0deg) scale(0.1);
   }
@@ -297,63 +309,69 @@ div.demo > div:nth-child(2) {
     opacity: 1;
   }
 }
-@keyframes resize_shake {
-  from {
-    transform: scale(0.3);
+
+@keyframes translate_mobile{
+
+  to{
+    transform: scale(0.5) translate(0px, -200px)
   }
+}
+@keyframes resize_shake {
+ 
   0% {
-    transform: rotate(0deg) scale(0.3);
+    transform: rotate(0deg) scale(0.3) translate(0px, -100px);
   }
   30% {
     transform: rotate(40deg) scale(0.3);
     opacity: 1;
   }
   40% {
-    transform: rotate(0deg) scale(0.7);
+    transform: rotate(0deg) scale(0.5);
   }
   75% {
-    transform: rotate(0deg) scale(0.7);
+    transform: rotate(0deg) scale(0.5);
   }
   100% {
-    transform: rotate(0deg) scale(0.7);
+    transform: rotate(0deg) scale(0.5);
     opacity: 1;
   }
 }
 
-#front-end img:nth-child(1){
+#front-end img:nth-child(1) {
   animation: up_donw 10s ease infinite;
 }
-#front-end img:nth-child(2){
-  animation: up_donw 7.5s ease 2s reverse infinite ;
+#front-end img:nth-child(2) {
+  animation: up_donw 7.5s ease 2s reverse infinite;
 }
-#front-end img:nth-child(3){
+#front-end img:nth-child(3) {
   animation: up_donw 3s ease 3.5s infinite;
 }
-#front-end img:nth-child(1):hover, #front-end img:nth-child(2):hover, #front-end img:nth-child(3):hover{
+#front-end img:nth-child(1):hover,
+#front-end img:nth-child(2):hover,
+#front-end img:nth-child(3):hover {
   animation-duration: 1s;
 }
 
-#back-end img:nth-child(1){
+#back-end img:nth-child(1) {
   animation: up_donw 6s ease infinite;
 }
-#back-end img:nth-child(2){
-  animation: up_donw 8s ease-in-out 1s reverse infinite ;
+#back-end img:nth-child(2) {
+  animation: up_donw 8s ease-in-out 1s reverse infinite;
 }
-#back-end img:nth-child(1):hover, #back-end img:nth-child(2):hover{
-  animation-duration: .5s;
+#back-end img:nth-child(1):hover,
+#back-end img:nth-child(2):hover {
+  animation-duration: 0.5s;
 }
 
-
-@keyframes up_donw{
-  0%{
-    transform: translateY(0px)
+@keyframes up_donw {
+  0% {
+    transform: translateY(0px);
   }
-  50%{
-    transform: translateY(10px)
+  50% {
+    transform: translateY(10px);
   }
-  100%{
-    transform: translateY(0px)
-
+  100% {
+    transform: translateY(0px);
   }
 }
 
@@ -366,9 +384,9 @@ div.demo > div:nth-child(2) {
   }
 
   .mobile {
-    margin-top: -20px;
+    margin-top: -130px;
     transform: scale(0.1);
-    margin-left: 70vw;
+    margin: auto;
     animation: resize_shake_mobile 5s ease-in-out forwards;
   }
 
@@ -388,20 +406,19 @@ div.demo > div:nth-child(2) {
 }
 
 @media only screen and (max-width: 380px) {
-  #contact{
-    display: none
+  #contact {
+    display: none;
   }
 }
 
 @media only screen and (min-width: 1000px) {
-  .cred-card{
-    width: 500px;
-  }
-  .app{
-    margin: 0
+
+  .app {
+    margin: 0;
+    padding-top: 30px;
   }
 
-  #project-mobile{
+  #project-mobile {
     margin-top: 350px;
   }
 }
